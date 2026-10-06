@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kelvin &amp; Sons Air – A/C repair, replacement and tune-ups</title>
+<meta name="description" content="Same-day A/C repair, honest replacement quotes and yearly tune-ups. Prices quoted before any work starts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+@property --h { syntax: '<number>'; inherits: true; initial-value: 205; }
+
+:root {
+  --bg: #EDF4F6;
+  --surface: #FFFFFF;
+  --ink: #0B2A3A;
+  --muted: #45606D;
+  --line: #C7DAE2;
+  --cool: #0B6E91;
+  --accent: #C93C08;
+  --on-accent: #FFFFFF;
+  --band-bg: #0B2A3A;
+  --band-ink: #E8F3F7;
+  --band-muted: #A9C3CE;
+  --display: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Instrument Sans', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #07161F; --surface: #0E2532; --ink: #E8F3F7; --muted: #9DB6C2; --line: #1F3F4F;
+    --cool: #5CC3E8; --accent: #FF6B35; --on-accent: #07161F;
+    --band-bg: #0B2432; --band-ink: #E8F3F7; --band-muted: #9DB6C2;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #07161F; --surface: #0E2532; --ink: #E8F3F7; --muted: #9DB6C2; --line: #1F3F4F;
+  --cool: #5CC3E8; --accent: #FF6B35; --on-accent: #07161F;
+  --band-bg: #0B2432; --band-ink: #E8F3F7; --band-muted: #9DB6C2;
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4.75rem); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+img, svg { max-width: 100%; }
+a { color: var(--cool); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.08; letter-spacing: -0.025em; margin: 0; font-weight: 700; }
+h1 { font-size: clamp(2.75rem, 8vw, 5.25rem); letter-spacing: -0.035em; line-height: 1; }
+h2 { font-size: clamp(1.9rem, 4.6vw, 3rem); }
+h3 { font-size: 1.3rem; letter-spacing: -0.015em; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--cool); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section-head { max-width: 40rem; margin-bottom: 2.25rem; }
+.section-head p { color: var(--muted); margin-top: .9rem; font-size: 1.125rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 3rem; padding: 0 1.5rem; border-radius: 999px;
+  font: 600 1rem/1 var(--body); text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; text-align: center;
+}
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn.ghost:hover { background: var(--ink); color: var(--bg); }
+.btn.on-band { border-color: var(--band-ink); color: var(--band-ink); background: transparent; }
+.btn.on-band:hover { background: var(--band-ink); color: var(--band-bg); }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); font: 700 1.25rem/1 var(--display); letter-spacing: -0.02em; }
+.brand .mark { width: 2rem; height: 2rem; color: var(--cool); flex: none; }
+.nav { display: none; gap: 1.6rem; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .98rem; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.phone { font: 700 1.05rem/1 var(--display); text-decoration: none; color: var(--ink); white-space: nowrap; }
+@media (min-width: 900px) { .nav { display: flex; } }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; --h: 205; transition: --h .7s ease; padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem); }
+.hero::before {
+  content: ""; position: absolute; width: min(80vw, 760px); aspect-ratio: 1; right: -12%; top: -8%;
+  background: radial-gradient(closest-side, hsl(var(--h) 85% 55% / .28), transparent);
+  pointer-events: none;
+}
+.hero-grid { position: relative; display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 3.5rem; } }
+.lede { font-size: 1.25rem; color: var(--muted); max-width: 32rem; margin-top: 1.25rem; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+.assure { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: .5rem; font-weight: 500; }
+.assure li { display: flex; gap: .6rem; align-items: baseline; }
+.assure li::before { content: ""; flex: none; width: .55rem; height: .55rem; border-radius: 50%; background: var(--cool); transform: translateY(-.05rem); }
+
+/* Thermostat */
+.dial-card { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 1.5rem 1.4rem 1.6rem; }
+.dial-card h2 { font-size: 1.25rem; letter-spacing: -0.01em; }
+.dial-card .sub { color: var(--muted); font-size: .95rem; margin-top: .25rem; }
+.dial { position: relative; width: min(100%, 300px); margin: 1rem auto .25rem; user-select: none; -webkit-user-select: none; }
+.dial svg { display: block; width: 100%; height: auto; cursor: pointer; }
+.dial .track, .dial .fillarc { fill: none; stroke-width: 18; stroke-linecap: round; }
+.dial .track { stroke: var(--line); }
+.dial .fillarc { stroke: hsl(var(--h) 85% 48%); transition: stroke-dasharray .6s ease; }
+.dial .num { font: 700 92px/1 var(--display); fill: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
+.dial .unit { font: 600 26px/1 var(--display); fill: var(--muted); }
+.dial .cap { font: 500 15px/1 var(--body); fill: var(--muted); }
+.thumb {
+  position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%;
+  touch-action: none; cursor: grab; display: grid; place-items: center;
+  transition: left .6s ease, top .6s ease;
+}
+.thumb.dragging { transition: none; cursor: grabbing; }
+.thumb::after { content: ""; width: 24px; height: 24px; border-radius: 50%; background: var(--surface); border: 6px solid hsl(var(--h) 85% 48%); }
+.dial-card input[type=range] { width: 100%; accent-color: var(--accent); margin: .6rem 0 0; height: 2rem; }
+.range-labels { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); }
+.dial-msg { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); min-height: 9.5rem; display: flex; flex-direction: column; gap: .5rem; align-items: flex-start; }
+.dial-msg strong { font: 700 1.25rem/1.2 var(--display); letter-spacing: -0.015em; }
+.dial-msg p { color: var(--muted); font-size: 1rem; }
+.dial-msg .btn { margin-top: auto; min-height: 2.75rem; }
+@media (prefers-reduced-motion: reduce) { .hero, .dial .fillarc, .thumb { transition: none; } }
+
+/* Symptom finder */
+.finder { display: grid; gap: 1.5rem; }
+@media (min-width: 820px) { .finder { grid-template-columns: 17rem 1fr; gap: 2.5rem; } }
+.symptoms { display: flex; flex-wrap: wrap; gap: .5rem; align-content: flex-start; }
+@media (min-width: 820px) { .symptoms { flex-direction: column; flex-wrap: nowrap; } }
+.symptoms button {
+  font: 500 1rem/1.2 var(--body); color: var(--ink); background: transparent;
+  border: 1.5px solid var(--line); border-radius: 999px; padding: .8rem 1.1rem; min-height: 3rem;
+  text-align: left; cursor: pointer;
+}
+.symptoms button:hover { border-color: var(--ink); }
+.symptoms button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.answer { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(1.25rem, 3vw, 2rem); }
+.answer h3 { font-size: 1.6rem; margin-bottom: 1.1rem; }
+.answer dl { margin: 0; display: grid; gap: 1rem; }
+.answer dt { font-weight: 600; font-size: .95rem; color: var(--cool); }
+.answer dd { margin: .15rem 0 0; max-width: 40rem; }
+.answer .safety { margin-top: 1.25rem; padding: .85rem 1rem; border-left: 4px solid var(--accent); background: var(--bg); border-radius: 0 8px 8px 0; font-size: .95rem; }
+.answer .btn { margin-top: 1.25rem; }
+
+/* Services */
+.price-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.price-list li { display: grid; grid-template-columns: 1fr auto; gap: .25rem 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.price-list h3 { font-size: 1.2rem; }
+.price-list p { grid-column: 1; color: var(--muted); max-width: 36rem; }
+.price-list .price { grid-row: 1; grid-column: 2; font: 700 1.2rem/1.2 var(--display); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fine { color: var(--muted); font-size: .92rem; margin-top: 1rem; }
+
+/* Replacement */
+.sizer { display: grid; gap: 1rem 2rem; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.4rem clamp(1.25rem, 3vw, 2rem); margin-bottom: 1.5rem; }
+@media (min-width: 820px) { .sizer { grid-template-columns: 1fr 1.2fr auto; } }
+.sizer label { font-weight: 600; display: block; }
+.sizer .sq { font: 700 1.6rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.sizer input[type=range] { width: 100%; accent-color: var(--accent); height: 2rem; }
+.sizer .result { font: 700 1.9rem/1 var(--display); color: var(--cool); font-variant-numeric: tabular-nums; }
+.sizer .result small { display: block; font: 500 .85rem/1.3 var(--body); color: var(--muted); margin-top: .35rem; }
+.tiers { display: grid; gap: 1rem; }
+@media (min-width: 900px) { .tiers { grid-template-columns: repeat(3, 1fr); align-items: stretch; } }
+.tier { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 1.6rem 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
+.tier.pick { border: 2px solid var(--cool); }
+.tier .badge { position: absolute; top: -.85rem; left: 1.4rem; background: var(--cool); color: var(--bg); font: 600 .85rem/1 var(--body); padding: .45rem .8rem; border-radius: 999px; }
+.tier .tier-price { font: 700 2rem/1 var(--display); letter-spacing: -0.03em; }
+.tier .tier-price small { font: 500 .95rem/1 var(--body); color: var(--muted); letter-spacing: 0; }
+.tier .tag { color: var(--muted); }
+.tier ul { list-style: none; margin: .5rem 0 0; padding: .9rem 0 0; border-top: 1px solid var(--line); display: grid; gap: .5rem; font-size: .98rem; }
+.tier li::before { content: "✓"; color: var(--cool); font-weight: 700; margin-right: .55rem; }
+
+/* Band (Cool Club) */
+.band { background: var(--band-bg); color: var(--band-ink); }
+.band-grid { display: grid; gap: 2rem 4rem; align-items: center; }
+@media (min-width: 900px) { .band-grid { grid-template-columns: 1fr 1fr; } }
+.band .club-price { font: 700 3rem/1 var(--display); letter-spacing: -0.04em; margin: 1.25rem 0 .35rem; }
+.band .club-price small { font: 500 1rem/1 var(--body); color: var(--band-muted); letter-spacing: 0; }
+.band p { color: var(--band-muted); }
+.band ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid rgba(255,255,255,.18); }
+.band li { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.18); display: grid; gap: .15rem; }
+.band li b { font: 600 1.1rem/1.3 var(--display); }
+.band li span { color: var(--band-muted); font-size: .98rem; }
+.band .cta-row { margin-top: 1.5rem; }
+
+/* Process */
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 0; max-width: 46rem; }
+.steps li { counter-increment: s; position: relative; padding: 0 0 1.75rem 3.6rem; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font: 700 1.1rem/1 var(--display); }
+.steps li::after { content: ""; position: absolute; left: 1.2rem; top: 2.7rem; bottom: .2rem; width: 2px; background: var(--line); }
+.steps li:last-child { padding-bottom: 0; }
+.steps li:last-child::after { display: none; }
+.steps h3 { font-size: 1.2rem; margin-bottom: .2rem; padding-top: .3rem; }
+.steps p { color: var(--muted); }
+
+/* Reviews */
+.reviews { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .reviews { grid-template-columns: 1.4fr 1fr; grid-template-rows: auto auto; } .reviews .big { grid-row: 1 / span 2; } }
+.reviews figure { margin: 0; border-radius: 20px; padding: 1.6rem; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
+.reviews blockquote { margin: 0; font-size: 1.1rem; }
+.reviews .big blockquote { font: 600 clamp(1.5rem, 3vw, 2.15rem)/1.2 var(--display); letter-spacing: -0.02em; }
+.reviews figcaption { color: var(--muted); font-size: .95rem; }
+.reviews figcaption b { color: var(--ink); font-weight: 600; }
+
+/* Area + hours */
+.area { display: grid; gap: 2rem 4rem; }
+@media (min-width: 820px) { .area { grid-template-columns: 1fr 1fr; } }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; padding: 0; list-style: none; }
+.chips li { border: 1.5px solid var(--line); border-radius: 999px; padding: .4rem .95rem; font-weight: 500; }
+.hours { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .6rem 1.5rem; border-top: 2px solid var(--ink); padding-top: 1rem; }
+.hours dt { font-weight: 600; }
+.hours dd { margin: 0; color: var(--muted); text-align: right; }
+
+/* Booking */
+.book { display: grid; gap: 2rem 4rem; align-items: start; }
+@media (min-width: 900px) { .book { grid-template-columns: .9fr 1.1fr; } }
+.book .side p { color: var(--muted); margin-top: 1rem; font-size: 1.125rem; }
+.book .callout { margin-top: 1.75rem; padding: 1.1rem 1.25rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+.book .callout b { display: block; font: 700 1.6rem/1.2 var(--display); }
+.form-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: clamp(1.25rem, 3vw, 2rem); }
+.fields { display: grid; gap: 1rem; }
+@media (min-width: 560px) { .fields { grid-template-columns: 1fr 1fr; } .fields .full { grid-column: 1 / -1; } }
+.field label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 3rem; padding: .7rem .9rem; font: 400 1rem/1.3 var(--body); color: var(--ink);
+  background: var(--bg); border: 1.5px solid var(--line); border-radius: 10px;
+}
+.field textarea { min-height: 5.5rem; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid var(--cool); outline-offset: 1px; border-color: var(--cool); }
+.form-card .btn { width: 100%; margin-top: 1.25rem; }
+.done { display: none; }
+.done h3 { font-size: 1.8rem; margin-bottom: .6rem; }
+.done p { color: var(--muted); }
+.form-card.sent .fields, .form-card.sent .btn.submit { display: none; }
+.form-card.sent .done { display: block; }
+
+/* Footer */
+.site-footer { background: var(--band-bg); color: var(--band-muted); padding-block: 2.5rem; font-size: .95rem; }
+.site-footer .row { display: grid; gap: 1.5rem; }
+@media (min-width: 720px) { .site-footer .row { grid-template-columns: 1.3fr 1fr 1fr; } }
+.site-footer b { color: var(--band-ink); display: block; margin-bottom: .3rem; }
+.site-footer a { color: var(--band-ink); }
+.site-footer .brand { color: var(--band-ink); }
+.site-footer .brand .mark { color: var(--band-ink); }
+.site-footer .copy { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.15); font-size: .85rem; }
+
+/* Mobile call bar */
+.mbar { display: none; }
+@media (max-width: 720px) {
+  .mbar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .5rem;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    padding: .6rem .8rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+    background: var(--surface); border-top: 1px solid var(--line);
+  }
+  .mbar .btn { min-height: 2.9rem; padding: 0 .8rem; }
+  body { padding-bottom: 4.75rem; }
+  .phone { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Kelvin &amp; Sons Air, home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" fill="currentColor"/>
+        <g fill="var(--bg)">
+          <ellipse cx="16" cy="9.5" rx="3" ry="6"/>
+          <ellipse cx="16" cy="9.5" rx="3" ry="6" transform="rotate(120 16 16)"/>
+          <ellipse cx="16" cy="9.5" rx="3" ry="6" transform="rotate(240 16 16)"/>
+        </g>
+        <circle cx="16" cy="16" r="2.2" fill="currentColor"/>
+      </svg>
+      <span>Kelvin &amp; Sons Air</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#fix">What's wrong?</a>
+      <a href="#services">Services and prices</a>
+      <a href="#replace">New systems</a>
+      <a href="#club">Cool Club</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+    <a class="phone" href="tel:+15550100142">(555) 010-0142</a>
+    <a class="btn primary" href="#book" style="min-height:2.6rem;padding:0 1.1rem;">Book a visit</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>A cooler house by tonight.</h1>
+      <p class="lede">A/C repair, replacement and yearly tune-ups from technicians who quote the price before they touch anything.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#book">Book a visit</a>
+        <a class="btn ghost" href="tel:+15550100142">Call (555) 010-0142</a>
+      </div>
+      <ul class="assure">
+        <li>Licensed, bonded and insured</li>
+        <li>Written price before work starts</li>
+        <li>Repairs backed for one year</li>
+      </ul>
+    </div>
+
+    <div class="dial-card">
+      <h2>How warm is it inside?</h2>
+      <p class="sub">Drag the dial or use the slider.</p>
+      <div class="dial" id="dial">
+        <svg viewBox="0 0 300 300" role="img" aria-label="Thermostat dial showing indoor temperature">
+          <circle class="track" cx="150" cy="150" r="120" transform="rotate(135 150 150)" stroke-dasharray="565.49 754"/>
+          <circle class="fillarc" id="fillarc" cx="150" cy="150" r="120" transform="rotate(135 150 150)" stroke-dasharray="0 754"/>
+          <text class="num" x="150" y="168" text-anchor="middle"><tspan id="num">68</tspan><tspan class="unit" dx="4" dy="-34">°F</tspan></text>
+          <text class="cap" x="150" y="204" text-anchor="middle">inside your home</text>
+        </svg>
+        <div class="thumb" id="thumb" aria-hidden="true"></div>
+      </div>
+      <input type="range" id="temp" min="68" max="95" step="1" value="78" aria-label="Indoor temperature in degrees Fahrenheit">
+      <div class="range-labels" aria-hidden="true"><span>68°</span><span>95°</span></div>
+      <div class="dial-msg" id="dialMsg" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDER -->
+<section class="section" id="fix" style="padding-top:clamp(1rem,3vw,2rem)">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's your A/C doing?</h2>
+      <p>Pick the closest match for likely causes, what you can safely try first, and what we'd do.</p>
+    </div>
+    <div class="finder">
+      <div class="symptoms" id="symptoms" role="group" aria-label="Symptoms"></div>
+      <div class="answer" id="answer" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Services and prices</h2>
+      <p>You see the number before we start. If we find something else, we ask first.</p>
+    </div>
+    <ul class="price-list">
+      <li>
+        <h3>Diagnostic visit</h3><span class="price">$89</span>
+        <p>We find the problem and quote the fix. The $89 is credited to the repair if you go ahead.</p>
+      </li>
+      <li>
+        <h3>Same-day A/C repair</h3><span class="price">from $149</span>
+        <p>Trucks carry the common parts, so most repairs are finished on the first visit.</p>
+      </li>
+      <li>
+        <h3>Seasonal tune-up</h3><span class="price">$119</span>
+        <p>Coil cleaning, refrigerant and electrical checks, filter swap, and a written report.</p>
+      </li>
+      <li>
+        <h3>Duct sealing and cleaning</h3><span class="price">from $349</span>
+        <p>Fix leaks and blocked runs that leave some rooms too hot and others too cold.</p>
+      </li>
+      <li>
+        <h3>Thermostat upgrades</h3><span class="price">from $189</span>
+        <p>Smart or basic, installed, wired and set up for you.</p>
+      </li>
+      <li>
+        <h3>New system installation</h3><span class="price">from $5,400</span>
+        <p>Sized to your home, with permit, haul-away and startup included. Details below.</p>
+      </li>
+      <li>
+        <h3>Commercial and rooftop units</h3><span class="price">Custom quote</span>
+        <p>Service agreements for shops, offices and restaurants.</p>
+      </li>
+    </ul>
+    <p class="fine">Prices are for standard residential work. Some older or unusual systems cost more, and we tell you before we begin.</p>
+  </div>
+</section>
+
+<!-- REPLACE -->
+<section class="section" id="replace" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Replacing your A/C? Here's what it costs.</h2>
+      <p>Start with the size your home probably needs, then pick how quiet and efficient you want it.</p>
+    </div>
+
+    <div class="sizer">
+      <div>
+        <label for="sqft">Home size</label>
+        <span class="sq"><span id="sqOut">2,000</span> sq ft</span>
+      </div>
+      <input type="range" id="sqft" min="800" max="4000" step="100" value="2000">
+      <div class="result"><span id="tonOut">3.5</span> tons<small>Rough estimate. We do a full load calculation at your home.</small></div>
+    </div>
+
+    <div class="tiers">
+      <article class="tier">
+        <h3>Essential</h3>
+        <p class="tier-price">from $5,400 <small>installed</small></p>
+        <p class="tag">Dependable cooling at the lowest price.</p>
+        <ul>
+          <li>14–15 SEER2, single-stage</li>
+          <li>10-year parts warranty</li>
+          <li>Permit, haul-away and startup</li>
+        </ul>
+      </article>
+      <article class="tier pick">
+        <span class="badge">Most homeowners choose this</span>
+        <h3>Comfort</h3>
+        <p class="tier-price">from $7,200 <small>installed</small></p>
+        <p class="tag">Steadier temperatures and lower bills.</p>
+        <ul>
+          <li>16–17 SEER2, two-stage</li>
+          <li>10-year parts, 2-year labor warranty</li>
+          <li>Smart thermostat included</li>
+        </ul>
+      </article>
+      <article class="tier">
+        <h3>Quiet Max</h3>
+        <p class="tier-price">from $10,500 <small>installed</small></p>
+        <p class="tag">Whisper-quiet, best humidity control.</p>
+        <ul>
+          <li>20+ SEER2, variable-speed</li>
+          <li>12-year parts, 5-year labor warranty</li>
+          <li>Smart thermostat and air filtration</li>
+        </ul>
+      </article>
+    </div>
+    <p class="fine">Typical prices for a 3-ton system in an existing home. Financing is available on approved credit.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#book" data-issue="new-system">Get a free replacement quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- COOL CLUB -->
+<section class="section band" id="club">
+  <div class="wrap band-grid">
+    <div>
+      <h2>Cool Club: fewer breakdowns, first in line.</h2>
+      <p style="margin-top:.9rem;font-size:1.125rem;">A yearly plan that keeps your system clean, checked and covered before the first heat wave.</p>
+      <p class="club-price">$179 <small>per year, per system</small></p>
+      <div class="cta-row">
+        <a class="btn primary" href="#book" data-issue="tuneup">Join Cool Club</a>
+      </div>
+    </div>
+    <ul>
+      <li><b>Two visits a year</b><span>A spring cooling tune-up and a fall heating check.</span></li>
+      <li><b>Priority scheduling</b><span>Members get booked ahead of new calls, even in a heat wave.</span></li>
+      <li><b>15% off repairs</b><span>And no after-hours or weekend surcharge.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head"><h2>How a visit works</h2></div>
+    <ol class="steps">
+      <li><h3>Book online or call</h3><p>Tell us what's happening. We confirm an arrival window, and text you when the technician is on the way.</p></li>
+      <li><h3>We diagnose first</h3><p>The technician tests the system and shows you what's wrong, with photos when we can.</p></li>
+      <li><h3>You get a written price</h3><p>Repair, replace or wait: you see the options and cost. No work starts until you say yes.</p></li>
+      <li><h3>We fix it and clean up</h3><p>You get a summary of what was done, and your repair is covered for one year.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><h2>What neighbors say</h2></div>
+    <div class="reviews">
+      <figure class="big">
+        <blockquote>“It was 91 inside when I called. The tech was here in the afternoon, showed me the failed capacitor, and it was cold again before dinner. The price matched the quote to the dollar.”</blockquote>
+        <figcaption><b>Marisol T.</b>, Riverview</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Three companies quoted a new system. Kelvin's was the only one that measured the house first, and the only one that told me to keep my old unit another year.”</blockquote>
+        <figcaption><b>Dennis and Priya A.</b>, Oakhill</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Joined Cool Club after a bad July. Two summers later, no breakdowns and the house is quieter.”</blockquote>
+        <figcaption><b>Coach Willems</b>, Lakeshire</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="section" id="area" style="padding-top:0">
+  <div class="wrap area">
+    <div>
+      <h2>Where we work</h2>
+      <p style="color:var(--muted);margin-top:.9rem;font-size:1.125rem;">Homes and businesses across the metro area, including:</p>
+      <ul class="chips">
+        <li>Downtown</li><li>Eastside</li><li>Riverview</li><li>Oakhill</li><li>Lakeshire</li><li>Maple Heights</li><li>Foundry District</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:1rem">Hours</h3>
+      <dl class="hours">
+        <dt>Monday to Friday</dt><dd>7 am – 7 pm</dd>
+        <dt>Saturday</dt><dd>8 am – 5 pm</dd>
+        <dt>Sunday</dt><dd>Emergency calls only</dd>
+        <dt>No-cool emergencies</dt><dd>24 hours, every day</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="section" id="book" style="padding-top:0">
+  <div class="wrap book">
+    <div class="side">
+      <h2>Book a visit</h2>
+      <p>Tell us what's going on and when works for you. We'll call to confirm your arrival window.</p>
+      <div class="callout">
+        No cooling and it's hot?
+        <b><a href="tel:+15550100142" style="text-decoration:none;color:var(--ink)">Call (555) 010-0142</a></b>
+        Calls are answered around the clock.
+      </div>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <form id="bookForm" novalidate>
+        <div class="fields">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input id="zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="10" required>
+          </div>
+          <div class="field">
+            <label for="issue">What do you need?</label>
+            <select id="issue" name="issue">
+              <option value="not-cooling">My A/C isn't cooling</option>
+              <option value="repair">Repair (noise, leak, won't start)</option>
+              <option value="tuneup">Tune-up or Cool Club</option>
+              <option value="new-system">Quote for a new system</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="when">When works best?</label>
+            <select id="when" name="when">
+              <option>As soon as possible</option>
+              <option>Tomorrow morning</option>
+              <option>Tomorrow afternoon</option>
+              <option>Later this week</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="notes">Anything we should know? (optional)</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+        </div>
+        <p id="formError" role="alert" style="color:var(--accent);font-weight:600;margin-top:1rem;display:none"></p>
+        <button class="btn primary submit" type="submit">Request a visit</button>
+        <div class="done" id="done" role="status">
+          <h3>Request received.</h3>
+          <p id="doneText"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <span class="brand" style="margin-bottom:.75rem">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="currentColor"/><g fill="var(--band-bg)"><ellipse cx="16" cy="9.5" rx="3" ry="6"/><ellipse cx="16" cy="9.5" rx="3" ry="6" transform="rotate(120 16 16)"/><ellipse cx="16" cy="9.5" rx="3" ry="6" transform="rotate(240 16 16)"/></g><circle cx="16" cy="16" r="2.2" fill="currentColor"/></svg>
+          <span>Kelvin &amp; Sons Air</span>
+        </span>
+        <p>Air conditioning sales, repair and maintenance for homes and businesses.</p>
+      </div>
+      <div>
+        <b>Contact</b>
+        <a href="tel:+15550100142">(555) 010-0142</a><br>
+        <a href="mailto:hello@kelvinandsons.example">hello@kelvinandsons.example</a>
+      </div>
+      <div>
+        <b>Jump to</b>
+        <a href="#fix">What's wrong?</a><br>
+        <a href="#services">Services and prices</a><br>
+        <a href="#replace">New systems</a><br>
+        <a href="#club">Cool Club</a>
+      </div>
+    </div>
+    <p class="copy">© 2026 Kelvin &amp; Sons Air. Licensed, bonded and insured.</p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn ghost" href="tel:+15550100142">Call now</a>
+  <a class="btn primary" href="#book">Book a visit</a>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- Thermostat ---------- */
+  var MIN = 68, MAX = 95, ARC = 565.49;
+  var hero = $('hero'), dial = $('dial'), fill = $('fillarc'), thumb = $('thumb');
+  var num = $('num'), range = $('temp'), msg = $('dialMsg');
+
+  var levels = [
+    { max: 74, head: 'Comfortable.', text: 'Keep it that way with a tune-up before peak summer.', cta: 'Book a tune-up', href: '#book', issue: 'tuneup' },
+    { max: 79, head: 'Warmer than you set it?', text: 'If the thermostat and the room disagree, your system may be losing capacity. A checkup usually finds out why.', cta: 'Book a checkup', href: '#book', issue: 'not-cooling' },
+    { max: 86, head: 'Too warm to be comfortable.', text: 'A system that can\u2019t get below 80 usually has a fixable cause, like low refrigerant, a dirty coil or a weak capacitor.', cta: 'Request a repair visit', href: '#book', issue: 'not-cooling' },
+    { max: 99, head: 'That\u2019s a no-cool emergency.', text: 'Heat like this is hard on kids, older adults and pets. We prioritize no-cool calls, so phone us now.', cta: 'Call (555) 010-0142', href: 'tel:+15550100142', issue: null }
+  ];
+
+  function render(v) {
+    var f = (v - MIN) / (MAX - MIN);
+    var hue = Math.round(205 - f * 190);
+    hero.style.setProperty('--h', hue);
+    dial.style.setProperty('--h', hue);
+    fill.setAttribute('stroke-dasharray', (f * ARC).toFixed(2) + ' 754');
+    var ang = (135 + f * 270) * Math.PI / 180;
+    thumb.style.left = ((150 + 120 * Math.cos(ang)) / 3) + '%';
+    thumb.style.top = ((150 + 120 * Math.sin(ang)) / 3) + '%';
+    thumb.style.setProperty('--h', hue);
+    num.textContent = v;
+    range.value = v;
+
+    var lvl = levels.find(function (l) { return v <= l.max; });
+    msg.innerHTML = '';
+    var s = document.createElement('strong'); s.textContent = lvl.head;
+    var p = document.createElement('p'); p.textContent = lvl.text;
+    var a = document.createElement('a'); a.className = 'btn primary'; a.href = lvl.href; a.textContent = lvl.cta;
+    if (lvl.issue) { a.setAttribute('data-issue', lvl.issue); a.addEventListener('click', function () { prefill(lvl.issue); }); }
+    msg.appendChild(s); msg.appendChild(p); msg.appendChild(a);
+  }
+  dial.style.setProperty('--h', 205);
+
+  function fromPoint(x, y, ringOnly) {
+    var r = dial.getBoundingClientRect();
+    var dx = x - (r.left + r.width / 2), dy = y - (r.top + r.height / 2);
+    if (ringOnly && Math.sqrt(dx * dx + dy * dy) / r.width * 300 < 80) return;
+    var a = Math.atan2(dy, dx) * 180 / Math.PI; if (a < 0) a += 360;
+    var rel = (a - 135 + 360) % 360;
+    if (rel > 270) rel = rel > 315 ? 0 : 270;
+    render(Math.round(MIN + rel / 270 * (MAX - MIN)));
+  }
+  var dragging = false;
+  thumb.addEventListener('pointerdown', function (e) { dragging = true; thumb.classList.add('dragging'); thumb.setPointerCapture(e.pointerId); e.preventDefault(); });
+  thumb.addEventListener('pointermove', function (e) { if (dragging) fromPoint(e.clientX, e.clientY, false); });
+  function endDrag() { dragging = false; thumb.classList.remove('dragging'); }
+  thumb.addEventListener('pointerup', endDrag);
+  thumb.addEventListener('pointercancel', endDrag);
+  dial.addEventListener('click', function (e) { if (e.target === thumb) return; fromPoint(e.clientX, e.clientY, true); });
+  range.addEventListener('input', function () { render(parseInt(range.value, 10)); });
+
+  // One entrance moment: the dial sweeps up to its starting value.
+  render(MIN);
+  if (reduce) { render(78); }
+  else { requestAnimationFrame(function () { requestAnimationFrame(function () { render(78); }); }); }
+
+  /* ---------- Symptom finder ---------- */
+  var symptoms = [
+    { label: 'Blowing warm air', causes: 'Low refrigerant, a dirty outdoor coil, or a failed capacitor or compressor.', tryFirst: 'Set the thermostat to Cool and a few degrees below room temperature, and replace a clogged filter. If the outdoor unit isn\u2019t running, don\u2019t keep switching it on and off.', we: 'Test refrigerant pressure, airflow and electrical parts, then quote the fix before starting.', issue: 'not-cooling' },
+    { label: 'Won\u2019t turn on', causes: 'A tripped breaker, dead thermostat batteries, a blown fuse or a worn contactor.', tryFirst: 'Check the thermostat display and batteries, then reset the breaker once. If it trips again, leave it off.', we: 'Trace the power problem, replace the failed part and confirm the system runs a full cycle.', issue: 'repair' },
+    { label: 'Loud or odd noises', causes: 'Squealing points to a motor or belt, grinding to a failing fan motor bearing, and clicking to a relay or contactor.', tryFirst: 'Turn the system off if you hear grinding or scraping. Running it can turn a small repair into a big one.', we: 'Find the source of the noise, and tell you if it\u2019s a quick fix or a sign the unit is near the end.', issue: 'repair' },
+    { label: 'Water leaking', causes: 'A clogged condensate drain line, or a frozen evaporator coil that thaws and overflows.', tryFirst: 'Turn the system off and mop up around the indoor unit. A little water in the drain pan is normal. Overflow isn\u2019t.', we: 'Clear and flush the drain, check the coil and pan, and fix what caused the backup.', issue: 'repair' },
+    { label: 'Ice on the unit or lines', causes: 'Restricted airflow from a dirty filter or blocked vents, or low refrigerant.', tryFirst: 'Switch cooling off and run the fan alone to melt the ice, which takes a few hours. Replace the filter before turning cooling back on.', we: 'Find out why it froze. If it\u2019s refrigerant, we locate the leak instead of just topping it up.', issue: 'not-cooling' },
+    { label: 'Rising energy bills', causes: 'An aging system, dirty coils, leaky ducts, or a unit that was never the right size.', tryFirst: 'Replace the filter and clear at least two feet of space around the outdoor unit.', we: 'Run a tune-up and duct check, then tell you honestly whether repairing or replacing makes more sense.', issue: 'tuneup' }
+  ];
+  var symBox = $('symptoms'), ans = $('answer');
+  function showSymptom(i) {
+    Array.prototype.forEach.call(symBox.children, function (b, j) { b.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    var s = symptoms[i];
+    ans.innerHTML = '';
+    var h = document.createElement('h3'); h.textContent = s.label;
+    var dl = document.createElement('dl');
+    [['Likely causes', s.causes], ['Safe to try first', s.tryFirst], ['What we do', s.we]].forEach(function (r) {
+      var wrap = document.createElement('div');
+      var dt = document.createElement('dt'); dt.textContent = r[0];
+      var dd = document.createElement('dd'); dd.textContent = r[1];
+      wrap.appendChild(dt); wrap.appendChild(dd); dl.appendChild(wrap);
+    });
+    var safety = document.createElement('p'); safety.className = 'safety';
+    safety.textContent = 'If you smell burning or see smoke, turn the system off at the breaker and call us.';
+    var btn = document.createElement('a'); btn.className = 'btn primary'; btn.href = '#book'; btn.textContent = 'Book a visit for this';
+    btn.addEventListener('click', function () { prefill(s.issue); });
+    ans.appendChild(h); ans.appendChild(dl); ans.appendChild(safety); ans.appendChild(btn);
+  }
+  symptoms.forEach(function (s, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = s.label; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { showSymptom(i); });
+    symBox.appendChild(b);
+  });
+  showSymptom(0);
+
+  /* ---------- Sizer ---------- */
+  var sq = $('sqft');
+  function sizer() {
+    var v = parseInt(sq.value, 10);
+    $('sqOut').textContent = v.toLocaleString('en-US');
+    var t = Math.round(v / 550 * 2) / 2;
+    t = Math.max(1.5, Math.min(5, t));
+    $('tonOut').textContent = t.toFixed(1);
+  }
+  sq.addEventListener('input', sizer); sizer();
+
+  /* ---------- Booking ---------- */
+  var issueSel = $('issue');
+  function prefill(v) { if (v) issueSel.value = v; }
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-issue]'), function (a) {
+    a.addEventListener('click', function () { prefill(a.getAttribute('data-issue')); });
+  });
+
+  var form = $('bookForm'), err = $('formError');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('name').value.trim(), phone = $('phone').value.trim(), zip = $('zip').value.trim();
+    var digits = phone.replace(/\D/g, '');
+    var problem = '';
+    if (!name) problem = 'Enter your name so we know who to ask for.';
+    else if (digits.length < 10) problem = 'Enter a phone number with area code so we can call you.';
+    else if (zip.length < 5) problem = 'Enter your 5-digit ZIP code so we can confirm we serve your area.';
+    if (problem) { err.textContent = problem; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    $('doneText').textContent = 'Thanks, ' + name.split(' ')[0] + '. We\u2019ll call ' + phone + ' to confirm your arrival window. If it\u2019s an emergency, call (555) 010-0142.';
+    $('formCard').classList.add('sent');
+  });
+})();
+</script>
+</body>
+</html>
